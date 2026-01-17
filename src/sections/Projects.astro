@@ -1,0 +1,249 @@
+---
+const images = [
+  { id: 100, height: 325, title: 'Personal branding', year: '2024', href: 'https://example.com' },
+  { id: 200, height: 400, title: 'Atrean', year: '2024-25', href: 'https://atrean.com' },
+  { id: 300, height: 280, title: 'Recall UAE', year: '2023-24' },
+  { id: 400, height: 420, title: 'Frontpage of Enterprise', year: '2025', href: '#' },
+  { id: 500, height: 380, title: 'Human Centric AI', year: '2024' },
+  { id: 600, height: 300, title: 'React Auto CLI', year: '2023-24' },
+  { id: 700, height: 400, title: 'Motion Graphics', year: '2023' },
+  { id: 800, height: 300, title: 'Branding', year: '2022' },
+  { id: 900, height: 280, title: 'Oryan', year: '2023-24' },
+  { id: 925, height: 480, title: '1Wheel', year: '2024' },
+  { id: 950, height: 550, title: 'Business Reports', year: '2021-23' },
+  { id: 1000, height: 600, title: 'Sarge AI', year: '2024' },
+  { id: 25, height: 325, title: 'Three.js Globe', year: '2025' },
+  { id: 50, height: 450, title: 'Data Apps : Atrean', year: '2025' },
+  { id: 75, height: 280, title: 'Reports: Atrean', year: '2025' },
+  { id: 100, height: 540, title: 'Mac Dock Animation', year: '2024' },
+  { id: 125, height: 380, title: 'Graphic Era', year: '2022-24' },
+  { id: 161, height: 300, title: 'Atrean Podcast', year: '2025' },
+  { id: 175, height: 400, title: 'Prompt Studio', year: '2024' },
+  { id: 200, height: 300, title: 'Flipkart-NFT', year: '2024' },
+  { id: 225, height: 280, title: 'Sorted for KaiOS', year: '2023' },
+  { id: 250, height: 480, title: 'TEDx Brand Kit', year: '2023-24' },
+  { id: 275, height: 550, title: 'Bento Grids', year: '2023' },
+  { id: 300, height: 600, title: 'Dotone (Startup)', year: '2024' },
+  { id: 13, height: 325, title: 'Emotion Detection', year: '2023' },
+  { id: 26, height: 450, title: 'Unsweetened Beauty', year: '2023' },
+  { id: 39, height: 280, title: 'Personal Rag Chatbot', year: '2024' },
+  { id: 52, height: 540, title: 'Dithering using ASCI', year: '2025' },
+  { id: 65, height: 380, title: 'Delivery Plus', year: '2023' },
+  { id: 78, height: 300, title: 'Geu Buzz', year: '2024' }
+];
+---
+
+<section class="masonry-wrapper">
+  <div class="masonry">
+    {images.map(({ id, height, title, year, href }) => (
+      <div class="masonry-item">
+        <div class="masonry-inner">
+          <div class="image-wrapper">
+            <img 
+              src={`https://picsum.photos/450/${height}?image=${id}`} 
+              alt={title} 
+              class="masonry-content blur-loading" 
+              width="450" 
+              height={height}
+              loading="lazy"
+            />
+            <div class="overlay">
+              <h3 class="card-title">{title}</h3>
+              <h4 class="card-year">{year}</h4>
+            </div>
+          </div>
+          {href && (
+            <div class="item-footer">
+              <a href={href} target="_blank" rel="noopener noreferrer">
+                <button class="action-btn">
+                  View Production
+                </button>
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .masonry-wrapper {
+    padding: 2rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .masonry {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+    gap: 16px;
+    grid-auto-rows: 0;
+  }
+
+  .masonry-item {
+    border-radius: .75rem;
+    overflow: hidden;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    will-change: transform;
+		background-color: #0F0F0F;
+    border-color: #1E1E1E;
+    border-width: 1px;
+    border-style: solid;
+    padding: .375rem;
+  }
+
+  .masonry-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; 
+  }
+
+  //.masonry-item:hover {
+  //  transform: translateY(-4px);
+  //  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+  //  z-index: 1;
+  //}
+
+  .image-wrapper {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .masonry-content {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    transition: filter 0.5s ease-in-out;
+  }
+
+  .blur-loading {
+    filter: blur(15px);
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 4rem 1rem 1rem 1rem;
+    background: linear-gradient(to top, #000000, transparent);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  .card-title, .card-year {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .item-footer {
+    width: 100%;
+    margin-top: 0.375rem;
+  }
+
+  .item-footer a {
+      text-decoration: none;
+  } 
+
+  .action-btn {
+    width: 100%;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    font-size: 13px;
+    background-color: #191919;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    letter-spacing: 0.1px;
+  }
+
+  .action-btn:hover {
+    background-color: #262626;
+  }
+  
+  .action-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .masonry {
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .masonry {
+      grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+  }
+</style>
+
+<script>
+  function resizeMasonryItem(item) {
+    const grid = document.querySelector('.masonry');
+
+    if (!grid) return;
+
+    const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+    const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    
+    const content = item.querySelector('.masonry-inner');
+    if (!content) return;
+
+    const contentHeight = content.getBoundingClientRect().height + 14; 
+    
+    const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+    item.style.gridRowEnd = 'span ' + rowSpan;
+  }
+
+  function resizeAllMasonryItems() {
+    const allItems = document.querySelectorAll('.masonry-item');
+    for (const item of allItems) resizeMasonryItem(item);
+  }
+
+  function initMasonry() {
+    const allItems = document.querySelectorAll('.masonry-item');
+    if (!allItems.length) return;
+
+    allItems.forEach(item => {
+      const img = item.querySelector('img.masonry-content');
+      if (!img) return;
+
+      if (img.complete) {
+        img.classList.remove('blur-loading');
+        resizeMasonryItem(item);
+      } else {
+        img.addEventListener('load', () => {
+          img.classList.remove('blur-loading');
+          resizeMasonryItem(item);
+        });
+      }
+    });
+
+    resizeAllMasonryItems();
+  }
+
+  window.addEventListener('load', initMasonry);
+  window.addEventListener('resize', resizeAllMasonryItems);
+  
+  initMasonry(); 
+</script>
