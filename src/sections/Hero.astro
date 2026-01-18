@@ -1,0 +1,382 @@
+---
+---
+
+<section class="hero-section">
+  <div class="container">
+    <p class="subtitle">Helping startups go from 0→1</p>
+    
+    <div class="hero-box">
+      <div class="hero-box-bg">
+        <div class="pattern"></div>
+      </div>
+      
+      <!-- Corners -->
+      <div class="corner top-left"></div>
+      <div class="corner top-right"></div>
+      <div class="corner bottom-left"></div>
+      <div class="corner bottom-right"></div>
+      
+      <h1>
+        Let’s build timeless products:
+        <br />
+        scaled for growth, designed to stay.
+      </h1>
+    </div>
+
+    <p class="description">
+Hi, I'm Jean, a JavaScript developer with experience in creating scalable applications for all platforms. I bridge the gap between complex problems and efficient solutions using modern technology and a growth mindset. I thrive in highly trusted teams and adapt to any challenge, driven by the philosophy that “nothing is impossible” when you commit to excellence.
+    </p>
+
+    <div class="actions">
+      <a href="https://cal.com/dhairyamarwah/quick-chat-with-dhairya" target="_blank" rel="noopener noreferrer" class="cta-button-wrapper">
+        <div class="cta-button">
+          <div class="cta-content">
+            <div class="avatar">
+              <!-- Placeholder for profile image -->
+              <img src="https://avatars.githubusercontent.com/u/90219458?s=400&u=1d942d2d42fd56a0343d066e2ae5986516b4e22e&v=4" alt="Profile" width="26" height="26" />
+            </div>
+            <div class="hover-content">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              <div class="you-badge">You</div>
+            </div>
+            <span class="cta-text">Book a Free Call</span>
+          </div>
+        </div>
+      </a>
+
+      <button class="secondary-button">
+        <span>Explore My Work</span>
+      </button>
+    </div>
+
+    <div class="logos">
+      <!-- Using placeholders for company logos
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+        <div class="logo-item">
+          <img src={`https://ui-avatars.com/api/?name=C${i}&background=0F0F0F&color=fff&size=50`} alt={`Company ${i}`} width="36" height="36" />
+        </div>
+      ))}
+      <div class="logo-item plus-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon-gray"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+      </div>
+      -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding: 4rem 1rem 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  .container {
+    max-width: 48rem; /* max-w-3xl */
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 0.75rem;
+    margin-top: 2.5rem;
+    color: #a1a1aa; /* text-muted-foreground approx */
+    font-family: serif;
+  }
+  
+  @media (min-width: 640px) {
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Hero Box with Borders and Corners */
+  .hero-box {
+    position: relative;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .hero-box {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .hero-box-bg {
+    position: absolute;
+    inset: 0;
+    margin: -0.25rem -2rem; /* -mx-8 -my-1 approx */
+    border: 1px solid #252525ff;
+    background-color: rgba(81, 173, 255, 0.03);
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  @media (min-width: 640px) {
+    .hero-box-bg {
+      margin: -0.5rem -3rem; /* -mx-12 -my-2 approx */
+    }
+  }
+
+  .pattern {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 700px;
+    top: -240px;
+    transform: rotate(45deg);
+    background-image: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      #252525ff 2px,
+      #252525ff 3px,
+      transparent 3px,
+      transparent 6px
+    );
+  }
+
+  .corner {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 1px solid #252525ff;
+    background-color: #0F0F0F; /* bg-background */
+    z-index: 10;
+  }
+
+  @media (min-width: 640px) {
+    .corner {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .top-left { top: -0.5rem; left: -2.25rem; } /* -left-[36px] -top-2 */
+  .top-right { top: -0.5rem; right: -2.25rem; }
+  .bottom-left { bottom: -0.5rem; left: -2.25rem; }
+  .bottom-right { bottom: -0.5rem; right: -2.25rem; }
+
+  @media (min-width: 640px) {
+    .top-left { top: -0.75rem; left: -3.25rem; } /* -left-[52px] -top-3 */
+    .top-right { top: -0.75rem; right: -3.25rem; }
+    .bottom-left { bottom: -0.75rem; left: -3.25rem; }
+    .bottom-right { bottom: -0.75rem; right: -3.25rem; }
+  }
+
+  h1 {
+    position: relative;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.2;
+    font-family: "Instrument Serif", serif;
+    margin: 0;
+    z-index: 1;
+  }
+
+  @media (min-width: 640px) {
+    h1 {
+      font-size: 34px;
+    }
+  }
+
+  .italic-text {
+    font-style: italic;
+  }
+
+  .description {
+    font-size: 13px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #a1a1aa;
+    margin-bottom: 1.5rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .description {
+      font-size: 17px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* Actions */
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .actions {
+      flex-direction: row;
+      gap: 0.75rem;
+      justify-content: center;
+      width: auto;
+    }
+  }
+
+  /* CTA Button Gradient Border Simulation */
+  .cta-button-wrapper {
+    display: inline-block;
+    padding: 1px;
+    border-radius: 0.5rem;
+    background: linear-gradient(to bottom, #252525, #3B3B3B);
+    text-decoration: none;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .cta-button-wrapper {
+      width: auto;
+    }
+  }
+
+  .cta-button {
+    background-color: #1C1C1C;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+
+  .cta-button:hover {
+    background-color: #222;
+  }
+
+  @media (min-width: 640px) {
+    .cta-button {
+      padding: 0.375rem 0.75rem;
+      font-size: 16px;
+    }
+  }
+
+  .cta-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar img {
+    border-radius: 50%;
+    display: block;
+  }
+
+  .hover-content {
+    display: none; /* Simplify for now, logic to animate needs JS or complex CSS */
+  }
+
+  .cta-text {
+    white-space: nowrap;
+  }
+
+  /* Secondary Button */
+  .secondary-button {
+    background: transparent;
+    border: 1px solid #272727;
+    color: #fff;
+    border-radius: 0.375rem;
+    padding: 0.25rem 1rem 0.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    width: 100%;
+    height: 100%;
+    min-height: 42px; /* Accessbility */
+  }
+
+  @media (min-width: 640px) {
+    .secondary-button {
+      width: auto;
+      font-size: 16px;
+      padding-left: 2rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  .secondary-button:hover {
+    border-color: #444;
+  }
+
+  .chevron-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.5; /* Default hidden somewhat as per design intent to show on hover */
+  }
+
+  /* Logos */
+  .logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -0.5rem; /* Negative spacing compensation */
+  }
+
+  .logo-item {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: #0F0F0F;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -0.5rem; /* Overlap */
+    position: relative;
+    transition: transform 0.2s, z-index 0.2s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .logo-item img {
+    border-radius: 50%;
+  }
+
+  .logo-item:hover {
+    z-index: 10;
+    transform: translateY(-2px);
+    border-color: #555;
+  }
+
+  .plus-item {
+    background-color: #2B2B2B;
+    border: 2px solid #0F0F0F;
+  }
+
+  .plus-icon-gray {
+    width: 1rem;
+    height: 1rem;
+    color: #9ca3af;
+  }
+
+</style>
+
+<script>
+  // Add interactivity if needed
+</script>

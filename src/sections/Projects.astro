@@ -68,17 +68,29 @@ const images = [
 </section>
 
 <style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    background-color: #0F0F0F;
+    color: #fff;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
   .masonry-wrapper {
-    padding: 2rem;
+    padding: .375rem;
     width: 100%;
     margin: 0 auto;
   }
 
   .masonry {
     display: grid;
-    grid-template-columns: repeat(1, minmax(100px, 1fr));
-    gap: 16px;
-    grid-auto-rows: 0;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: .375rem;
+    grid-auto-rows: 1px;
   }
 
   .masonry-item {
@@ -87,26 +99,18 @@ const images = [
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
     transition: transform 0.3s ease, filter 0.3s ease;
     will-change: transform;
-		background-color: #0F0F0F;
+    background-color: #0F0F0F;
     border-color: #1E1E1E;
     border-width: 1px;
     border-style: solid;
     padding: .375rem;
   }
 
-  .masonry-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    width: 100%; 
-  }
-
-  //.masonry-item:hover {
-  //  transform: translateY(-4px);
-  //  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
-  //  z-index: 1;
-  //}
+  /* .masonry-item:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15));
+    z-index: 1;
+  } */
 
   .image-wrapper {
     position: relative;
@@ -133,7 +137,7 @@ const images = [
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 4rem 1rem 1rem 1rem;
+    padding: 3rem .5rem .5rem .5rem;
     background: linear-gradient(to top, #000000, transparent);
     display: flex;
     justify-content: space-between;
@@ -154,7 +158,7 @@ const images = [
   }
 
   .item-footer a {
-      text-decoration: none;
+    text-decoration: none;
   } 
 
   .action-btn {
@@ -184,13 +188,7 @@ const images = [
     height: 1rem;
   }
 
-  @media (min-width: 640px) {
-    .masonry {
-      grid-template-columns: repeat(2, minmax(100px, 1fr));
-    }
-  }
-
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     .masonry {
       grid-template-columns: repeat(3, minmax(100px, 1fr));
     }
@@ -203,15 +201,29 @@ const images = [
 
     if (!grid) return;
 
-    const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
-    const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+    const gridStyle = window.getComputedStyle(grid);
+    const rowGap = parseFloat(gridStyle.getPropertyValue('gap')) || 0;
+    const rowHeight = parseFloat(gridStyle.getPropertyValue('grid-auto-rows')) || 0;
     
     const content = item.querySelector('.masonry-inner');
     if (!content) return;
 
-    const contentHeight = content.getBoundingClientRect().height + 14; 
+    // Get the actual height of the content
+    const contentHeight = content.getBoundingClientRect().height;
     
-    const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+    // Calculate vertical padding and border of the item itself
+    const itemStyle = window.getComputedStyle(item);
+    const verticalPadding = (parseFloat(itemStyle.paddingTop) || 0) + (parseFloat(itemStyle.paddingBottom) || 0);
+    const verticalBorder = (parseFloat(itemStyle.borderTopWidth) || 0) + (parseFloat(itemStyle.borderBottomWidth) || 0);
+    
+    // Total height required by the item
+    const totalHeight = contentHeight + verticalPadding + verticalBorder;
+    
+    // Calculate span
+    // Formula: span * rowHeight + (span - 1) * rowGap >= totalHeight
+    // span * (rowHeight + rowGap) >= totalHeight + rowGap
+    const rowSpan = Math.ceil((totalHeight + rowGap) / (rowHeight + rowGap));
+
     item.style.gridRowEnd = 'span ' + rowSpan;
   }
 
@@ -224,7 +236,12 @@ const images = [
     const allItems = document.querySelectorAll('.masonry-item');
     if (!allItems.length) return;
 
+    // Use a ResizeObserver for more robust resizing handling
+    const resizeObserver = new ResizeObserver(() => resizeAllMasonryItems());
+    
     allItems.forEach(item => {
+      resizeObserver.observe(item); // Observe each item for size changes
+
       const img = item.querySelector('img.masonry-content');
       if (!img) return;
 
@@ -239,11 +256,17 @@ const images = [
       }
     });
 
+    // Also observe the grid wrapper for width changes
+    const grid = document.querySelector('.masonry');
+    if (grid) resizeObserver.observe(grid);
+
     resizeAllMasonryItems();
   }
 
+  // Fallback events
   window.addEventListener('load', initMasonry);
   window.addEventListener('resize', resizeAllMasonryItems);
   
+  // Run immediately in case DOM is ready
   initMasonry(); 
 </script>
