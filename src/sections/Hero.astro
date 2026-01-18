@@ -10,7 +10,6 @@
         <div class="pattern"></div>
       </div>
       
-      <!-- Corners -->
       <div class="corner top-left"></div>
       <div class="corner top-right"></div>
       <div class="corner bottom-left"></div>
@@ -32,7 +31,6 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
         <div class="cta-button">
           <div class="cta-content">
             <div class="avatar">
-              <!-- Placeholder for profile image -->
               <img src="https://avatars.githubusercontent.com/u/90219458?s=400&u=1d942d2d42fd56a0343d066e2ae5986516b4e22e&v=4" alt="Profile" width="26" height="26" />
             </div>
             <div class="hover-content">
@@ -50,16 +48,6 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     </div>
 
     <div class="logos">
-      <!-- Using placeholders for company logos
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-        <div class="logo-item">
-          <img src={`https://ui-avatars.com/api/?name=C${i}&background=0F0F0F&color=fff&size=50`} alt={`Company ${i}`} width="36" height="36" />
-        </div>
-      ))}
-      <div class="logo-item plus-item">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="plus-icon-gray"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
-      </div>
-      -->
     </div>
   </div>
 </section>
@@ -74,7 +62,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
   }
 
   .container {
-    max-width: 48rem; /* max-w-3xl */
+    max-width: 48rem;
     width: 100%;
     text-align: center;
     display: flex;
@@ -86,7 +74,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     font-size: 16px;
     margin-bottom: 0.75rem;
     margin-top: 2.5rem;
-    color: #a1a1aa; /* text-muted-foreground approx */
+    color: #a1a1aa;
     font-family: serif;
   }
   
@@ -97,7 +85,6 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     }
   }
 
-  /* Hero Box with Borders and Corners */
   .hero-box {
     position: relative;
     margin-bottom: 1rem;
@@ -116,7 +103,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
   .hero-box-bg {
     position: absolute;
     inset: 0;
-    margin: -0.25rem -2rem; /* -mx-8 -my-1 approx */
+    margin: -0.25rem -2rem;
     border: 1px solid #252525ff;
     background-color: rgba(81, 173, 255, 0.03);
     overflow: hidden;
@@ -125,7 +112,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
 
   @media (min-width: 640px) {
     .hero-box-bg {
-      margin: -0.5rem -3rem; /* -mx-12 -my-2 approx */
+      margin: -0.5rem -3rem;
     }
   }
 
@@ -151,7 +138,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     width: 6px;
     height: 6px;
     border: 1px solid #252525ff;
-    background-color: #0F0F0F; /* bg-background */
+    background-color: #0F0F0F;
     z-index: 10;
   }
 
@@ -162,13 +149,13 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     }
   }
 
-  .top-left { top: -0.5rem; left: -2.25rem; } /* -left-[36px] -top-2 */
+  .top-left { top: -0.5rem; left: -2.25rem; }
   .top-right { top: -0.5rem; right: -2.25rem; }
   .bottom-left { bottom: -0.5rem; left: -2.25rem; }
   .bottom-right { bottom: -0.5rem; right: -2.25rem; }
 
   @media (min-width: 640px) {
-    .top-left { top: -0.75rem; left: -3.25rem; } /* -left-[52px] -top-3 */
+    .top-left { top: -0.75rem; left: -3.25rem; }
     .top-right { top: -0.75rem; right: -3.25rem; }
     .bottom-left { bottom: -0.75rem; left: -3.25rem; }
     .bottom-right { bottom: -0.75rem; right: -3.25rem; }
@@ -213,7 +200,6 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     }
   }
 
-  /* Actions */
   .actions {
     display: flex;
     flex-direction: column;
@@ -231,7 +217,6 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     }
   }
 
-  /* CTA Button Gradient Border Simulation */
   .cta-button-wrapper {
     display: inline-block;
     padding: 1px;
@@ -285,14 +270,13 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
   }
 
   .hover-content {
-    display: none; /* Simplify for now, logic to animate needs JS or complex CSS */
+    display: none;
   }
 
   .cta-text {
     white-space: nowrap;
   }
 
-  /* Secondary Button */
   .secondary-button {
     background: transparent;
     border: 1px solid #272727;
@@ -308,7 +292,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     transition: border-color 0.2s;
     width: 100%;
     height: 100%;
-    min-height: 42px; /* Accessbility */
+    min-height: 42px;
   }
 
   @media (min-width: 640px) {
@@ -327,10 +311,9 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
   .chevron-icon {
     width: 16px;
     height: 16px;
-    opacity: 0.5; /* Default hidden somewhat as per design intent to show on hover */
+    opacity: 0.5;
   }
 
-  /* Logos */
   .logos {
     display: flex;
     justify-content: center;
@@ -347,7 +330,7 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: -0.5rem; /* Overlap */
+    margin-left: -0.5rem;
     position: relative;
     transition: transform 0.2s, z-index 0.2s;
     cursor: pointer;
@@ -378,5 +361,4 @@ Hi, I'm Jean, a JavaScript developer with experience in creating scalable applic
 </style>
 
 <script>
-  // Add interactivity if needed
 </script>
